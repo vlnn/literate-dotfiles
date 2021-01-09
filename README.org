@@ -1,0 +1,109 @@
+#+TITLE:      VLNN's Literate Dotfiles
+#+AUTHOR:     VLNN
+#+KEYWORDS:   vlnn dotfiles config
+#+STARTUP:    showall
+#+EXPORT_FILE_NAME: index
+-----
+
+#+ATTR_HTML: :alt Literate dotfiles logo :class logo
+[[file:img/logo.svg]]
+
+* Literate dotfiles
+
+These are my heavily commented dotfiles. The idea and lots of the implementation
+were shamefully stolen from the [[https://gitlab.com/to1ne/literate-dotfiles/][to1ne]]. To put it very simply, this is the repo
+of the configuration files, that are written in intermittent format of [[https://www.gnu.org/software/emacs/][Emacs]] [[https://orgmode.org/][Org
+mode]] with lots of comments, and then [[http://orgmode.org/worg/org-contrib/babel/intro.html][org-babel]] is used to build these dotfiles.
+
+** Literate programming
+
+[[http://www.literateprogramming.com/][Literate programming]] is a way of writing programs where the
+documentation is mixed with the source code. It was first introduced
+by [[https://cs.stanford.edu/~knuth/][Donald Knuth]].
+
+Instead of being written for computers, literate programs are intended
+for programmers first. So the order follows the human logic, and not
+that of computers. The source files are compiled so computers also can
+read them.
+
+You can read all about it [[http://www.literateprogramming.com/knuthweb.pdf][Knuth's paper]].
+
+** Org-babel
+
+[[https://orgmode.org/worg/org-contrib/babel/][Org-babel]] gives Org mode the ability to mix human natural language
+with computer source code. It can be used to mix different languages
+together. A piece of data may pass from a table to a Python code
+block, and eventually go through a [[http://gnuplot.info/][gnuplot]] code block to end up as a
+plot embedded in the document.
+
+** Output files
+
+Each =.org= tangles to one or more files somewhere in my =$HOME=
+directory. Many dotfiles management tools use symbolic links to place
+files at their correct location, but with this approach output files
+are written directly to the correct location.
+
+There are several ways to configure the output files, but in most
+cases I'm using a 1-to-1 configuration by specifying document-wide
+properties.
+
+#+BEGIN_SRC org
+#+PROPERTY:   header-args+ :comments both
+#+PROPERTY:   header-args+ :mkdirp yes
+#+PROPERTY:   header-args+ :tangle "<filename>"
+-----
+#+END_SRC
+
+I'm appending =+= to =header-args= otherwise each line would overwrite
+the settings of the previous, and with the plus they are appended. See
+[[https://orgmode.org/manual/Property-syntax.html][Property syntax]].
+
+*** Comments
+
+=comments= is set to "both". With this setting, the text from the org
+file is inserted as comment in the file, *and* also a link to the
+source file is added.
+
++ [ ] TODO add proper but small example of the pre-entangled code
+
+The headlines are included in the comments, but also Org mode links to
+the source blocks are included. If you'd install and enable
+[[https://github.com/seanohalpin/org-link-minor-mode][=org-link-minor-mode=]] those links become clickable.
+
+*** Mkdir
+
+And =mkdirp= ensures the destination directory will be created.
+
+*** Multiple files
+
+In some cases, a single =.org= file creates multiple output files,
+like [[./git.org][=git.org=]]. In those cases I specify the output file at
+headline level:
+
+#+BEGIN_SRC org
+,** My script
+:PROPERTIES:
+:header-args: :tangle ~/path/to/destination
+:header-args+: :comments both :mkdirp yes :shebang "#!/bin/bash -e"
+:END:
+#+END_SRC
+
+or sometimes at code block level:
+
+#+BEGIN_SRC org
+,#+BEGIN_SRC my-lang :tangle ~/path/to/destination
+... source of the script here ...
+,#+END_SRC
+#+END_SRC
+
+* Index [11/14]
+
+These are the things I manage with this project:
+
++ [X] [[file:kitty.org][Kitty]] (terminal)
++ [ ] [[https://regolith-linux.org/][Regolith]] (i3-based desktop environment)
+
+* Usage
+
+Clone this repo and run =make= to update all dotfiles. =make publish= will generate
+the HTML not too different from the one you're perhaps reading right now. Be aware, this *will try to rewrite* your current config without questions.

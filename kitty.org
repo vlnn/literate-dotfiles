@@ -1,0 +1,56 @@
+#+TITLE:      Kitty configuration
+#+AUTHOR:     Toon Claes, vlnn
+#+KEYWORDS:   toon claes vlnn kitty terminal config
+#+STARTUP:    showall
+#+PROPERTY:   header-args+ :comments both
+#+PROPERTY:   header-args+ :tangle "~/.config/kitty/kitty.conf" :mkdirp yes
+-----
+
+
+* Theme
+
+[[https://github.com/dexpota/kitty-themes/blob/master/themes/Tomorrow.conf][Tomorrow light]].
+
+#+begin_src conf
+background            #ffffff
+foreground            #4c4c4c
+cursor                #4c4c4c
+selection_background  #d6d6d6
+color0                #000000
+color8                #000000
+color1                #c82828
+color9                #c82828
+color2                #708b00
+color10               #708b00
+color3                #e9b600
+color11               #e9b600
+color4                #4170ae
+color12               #4170ae
+color5                #8958a7
+color13               #8958a7
+color6                #3d999f
+color14               #3d999f
+color7                #fffefe
+color15               #fffefe
+selection_foreground #ffffff
+#+end_src
+
+* Font
+
+#+begin_src conf
+font_family        Fantasque Sans Mono
+font_size      	   9.0
+#+end_src
+
+* Cursor setup
+
+#+begin_src conf
+cursor_blink_interval     0.5
+#+end_src
+
+* Scrollback history size
+
+#+begin_src conf
+scrollback_lines 200000
+#+end_src
+
