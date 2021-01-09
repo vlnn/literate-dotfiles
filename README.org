@@ -96,7 +96,7 @@ or sometimes at code block level:
 ,#+END_SRC
 #+END_SRC
 
-* Index [11/14]
+* Index [1/2]
 
 These are the things I manage with this project:
 
