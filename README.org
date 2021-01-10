@@ -96,14 +96,19 @@ or sometimes at code block level:
 ,#+END_SRC
 #+END_SRC
 
-* Index [2/4]
+* Index [2/9]
 
 These are the things I manage with this project:
 
 + [X] [[file:kitty.org][Kitty]] (terminal)
++ [X] [[https://github.com/amix/vimrc][.vimrc]]
 + [ ] [[https://regolith-linux.org/][Regolith]] (i3-based desktop environment)
 + [ ] [[https://github.com/hlissner/doom-emacs/][.emacs.d]]
-+ [X] [[https://github.com/amix/vimrc][.vimrc]]
++ [ ] git
++ [ ] nnn
++ [ ] locale (en/ua)
++ [ ] bashrc
++ [ ] anki
 
 * Usage
 
