@@ -6,7 +6,7 @@
 -----
 
 #+ATTR_HTML: :alt Literate dotfiles logo :class logo
-[[file:img/logo.svg]]
+[[file:img/logo.png]]
 
 * Literate dotfiles
 
