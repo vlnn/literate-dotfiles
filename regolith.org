@@ -46,6 +46,21 @@ set_from_resource $ws18 i3-wm.workspace.18.name "18"
 set_from_resource $ws19 i3-wm.workspace.19.name "19"
 #+end_src
 
+* Workspaces binded to monitors
+I need to try it out without external monitor connected though...
+#+begin_src conf
+workspace 1 output eDP-1-1
+workspace 2 output eDP-1-2
+workspace 3 output eDP-1-2
+workspace 4 output eDP-1-2
+workspace 5 output eDP-1-2
+workspace 6 output eDP-1-2
+workspace 7 output eDP-1-2
+workspace 8 output eDP-1-2
+workspace 9 output eDP-1-2
+workspace 0 output eDP-1-2
+#+end_src
+
 * Workspace keys
 
 #+begin_src conf
@@ -686,7 +701,13 @@ bar {
   }
 }
 #+end_src
-
+* Binding applications to workspaces
+** Spotify and slack are always on workspace 8
+Why workspace 8? Because there are 8 main workspaces I ever use in i3 setup due to specific arrangement of F1-F8 keys on the left side of my Kinesis Advantage keyboard.
+#+begin_src conf
+for_window [class="Spotify"] move to workspace $ws8
+assign [class="Slack*"] $ws8
+#+end_src
 * Starting different things on startup
 ** Start the installed regolith-compositor
 #+begin_src conf
@@ -717,4 +738,19 @@ exec --no-startup-id $i3-wm.program.unclutter
 #+begin_src conf
 set_from_resource $i3-wm.program.nm-applet i3-wm.program.nm-applet /usr/bin/nm-applet
 exec --no-startup-id $i3-wm.program.nm-applet
+#+end_src
+
+** Emacs
+Emacs should be always on
+#+begin_src conf
+exec --no-startup-id i3-msg 'workspace 1; exec emacs'
+#+end_src
+** Google chrome
+First start at workspace 2 (or main workspace of second monitor), afterwards anywhere -- this is why it's not binded to the ws2.
+#+begin_src conf
+exec --no-startup-id i3-msg 'workspace 2; exec google-chrome'
+#+end_src
+** My own wallpaper
+#+begin_src conf
+exec --no-startup-id feh --bg-fill ~/Pictures/sky-turner.jpg
 #+end_src
