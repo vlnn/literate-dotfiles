@@ -49,16 +49,16 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 * Workspaces binded to monitors
 I need to try it out without external monitor connected though...
 #+begin_src conf
-workspace 1 output eDP-1-1
-workspace 2 output eDP-1-2
-workspace 3 output eDP-1-2
-workspace 4 output eDP-1-2
-workspace 5 output eDP-1-2
-workspace 6 output eDP-1-2
-workspace 7 output eDP-1-2
-workspace 8 output eDP-1-2
-workspace 9 output eDP-1-2
-workspace 0 output eDP-1-2
+workspace "$ws1" output eDP-1-1
+workspace "$ws2" output eDP-1-2
+workspace "$ws3" output eDP-1-2
+workspace "$ws4" output eDP-1-2
+workspace "$ws5" output eDP-1-2
+workspace "$ws6" output eDP-1-2
+workspace "$ws7" output eDP-1-2
+workspace "$ws8" output eDP-1-2
+workspace "$ws9" output eDP-1-2
+workspace "$ws10" output eDP-1-2
 #+end_src
 
 * Workspace keys
@@ -472,7 +472,7 @@ bindsym $mod+$i3-wm.binding.sleep exec $i3-wm.program.sleep
 #+end_src
 
 * System Management
-#+begin_src 
+#+begin_src conf
 ## Modify // Settings // <Super> c ##
 set_from_resource $i3-wm.binding.settings i3-wm.binding.settings c
 set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-center --class=floating_window
