@@ -50,15 +50,15 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 I need to try it out without external monitor connected though...
 #+begin_src conf
 workspace "$ws1" output eDP-1-1
-workspace "$ws2" output eDP-1-2
-workspace "$ws3" output eDP-1-2
-workspace "$ws4" output eDP-1-2
-workspace "$ws5" output eDP-1-2
-workspace "$ws6" output eDP-1-2
-workspace "$ws7" output eDP-1-2
-workspace "$ws8" output eDP-1-2
-workspace "$ws9" output eDP-1-2
-workspace "$ws10" output eDP-1-2
+workspace "$ws2" output DP-1-2
+workspace "$ws3" output DP-1-2
+workspace "$ws4" output DP-1-2
+workspace "$ws5" output DP-1-2
+workspace "$ws6" output DP-1-2
+workspace "$ws7" output DP-1-2
+workspace "$ws8" output DP-1-2
+workspace "$ws9" output DP-1-2
+workspace "$ws10" output DP-1-2
 #+end_src
 
 * Workspace keys
